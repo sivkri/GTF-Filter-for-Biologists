@@ -5,7 +5,6 @@
 The below procedure can be carrried on linux commands
 
 
-
 **Example Usage**
 
 python extractGTF.py homo_sapiens_short.gtf 11 11_result.txt
