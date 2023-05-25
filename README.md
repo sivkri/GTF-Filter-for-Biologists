@@ -1,4 +1,4 @@
-# extractgtf
+# extract information using python script from .gtf file
 
 **To filter and extract information based on your input**
 
