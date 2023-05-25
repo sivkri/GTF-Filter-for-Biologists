@@ -173,8 +173,9 @@ The first step is to enter the command to enter the vi editing interface.
 
 In the second step, after pressing the i key to switch to the insert mode, write down the contents of the rush.sh file as follows:
 
-`#!/bin/bash
-grep exon *.gtf | awk '{print $5-$4+1}' | sort -n | tail -3`
+`#!/bin/bash`
+
+`grep exon *.gtf | awk '{print $5-$4+1}' | sort -n | tail -3`
 
 `#!/bin/bash` on the first line tells the operating system to use `/bin/bash` as the interpreter to run the script
 
