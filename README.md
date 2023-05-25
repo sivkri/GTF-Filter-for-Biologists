@@ -32,15 +32,15 @@ ls  # check if 1.gtf.gz has been unzipped to 1.gtf
 
 **Step1. View the basic information of the file**
 
-`cat 1.gtf | head #Display the first 10 lines of 1.gtf file`
+`cat 1.gtf | head` Display the first 10 lines of 1.gtf file
 
-`cat 1.gtf | tail #Display the last 10 lines of the 1.gtf file`
+`cat 1.gtf | tail` Display the last 10 lines of the 1.gtf file
 
-`cat 1.gtf | head -15 #Display the first 15 lines of the 1.gtf file (the input value 15 can be replaced by other integers)`
+`cat 1.gtf | head -15` Display the first 15 lines of the 1.gtf file (the input value 15 can be replaced by other integers)
 
-`ls -lh 1.gtf #Display the size of the 1.gtf file`
+`ls -lh 1.gtf` Display the size of the 1.gtf file
 
-`wc -l 1.gtf #Statistics 1.gtf file line number`
+`wc -l 1.gtf` Statistics 1.gtf file line number
 
 **Use grep -v to exclude comment line (parts beginning with #) and blank lines with a length of 0**
 
@@ -53,7 +53,7 @@ If '^$' can match a certain line, it means that the line is empty (the beginning
 `grep -v "^#" 1.gtf | grep -v '^$' | wc -l`
 
 **Filter blank empty lines (in addition to line breaks, lines that may also include blank characters, such as spaces and tabs), display the first 10 lines of results
-('\s' matches a blank character, '*' means that such a character will appear 0 or more times, '^\s*$' indicates that there are only 0 or more blank characters between the beginning and end of a line)**
+`'\s'` matches a blank character, `'*'` means that such a character will appear 0 or more times, `'^\s*$'` indicates that there are only 0 or more blank characters between the beginning and end of a line**
 
 `cat 1.gtf | awk '$0!~/^\s*$/{print}' | head -10`
 
@@ -65,7 +65,7 @@ If '^$' can match a certain line, it means that the line is empty (the beginning
 
 Select the data of 1-3 columns (the following two commands are available)
 
-awk's default line separator is space " " and tab "\t"
+awk's default line separator is space `" "` and tab `"\t"`
 
 After awk divides each row into columns by delimiter, the values of columns 1, 2, and 3 can be obtained through $1, $2, and $3 ($0 represents the content of the entire row)
 
@@ -75,7 +75,7 @@ The default delimiter for cut is "\t"
 
 `cat 1.gtf | cut -f 1,2,3 | head`
 
-Eg. For example, I only need columns 1, 34, and 5 of the GTF file, which are chr, feature, start, and end.
+Eg. For example, I only need columns 1, 3, 4, and 5 of the GTF file, which are chr, feature, start, and end.
 
 `cut -f 1,3,4,5 1.gtf | head`
 
@@ -88,8 +88,6 @@ awk separates each line into columns according to the default line separator, an
 `cat 1.gtf | awk '$3 == "gene" { print $1, $3, $9 } ' | head`
 
 **step3. Extract and calculate specific features**
-
-This stage is a further study on the basis of learning step2. For the first attempt, first copy the following commands, observe the output results, and then suggest trying to modify the parameters in the following commands for more practice.
 
 **step3.1 Extract and count featrue types**
 
@@ -143,9 +141,9 @@ This stage is mainly to learn to extract data and save it into a new file, for e
 
 Two methods are introduced here.
 
-The first is to directly extract and calculate the longest 3 exons, report their length, and save them in a .txt file;
+The first is to directly extract and calculate the longest 3 exons, report their length, and save them in a `.txt` file;
 
-The second method is to write an executable file run.sh, find the 3 longest exons, and report their lengths.
+The second method is to write an executable file `run.sh`, find the 3 longest exons, and report their lengths.
 
 **step4.1 Demonstration of extracting data and storing it in a txt file**
 
@@ -155,7 +153,7 @@ We use the output redirection operator `>` to save what would be printed to the 
 
 If `1.txt` is an existing file, the content of the output redirection operator `>` will overwrite the original file.
 
-If we want to append the output to the redirected file instead of overwriting the original file when the redirected file exists, we can use the >> operator.
+If we want to append the output to the redirected file instead of overwriting the original file when the redirected file exists, we can use the `>>` operator.
 
 Then enter the command `less 1.txt` or `vi 1.txt` to enter the vi general mode interface to display the output results.
 
@@ -189,7 +187,7 @@ Give the script executable permissions
 
 `./run.sh`
 
-Since we added the `#!/bin/bash` line, the operating system will use `/bin/bash` to run the script. If `run.sh` is not given executable permission, running `./run.sh` will prompt permission denied, but if you manually specify the explanation The device, using bash `run.sh`, can also run normally
+Since we added the `#!/bin/bash` line, the operating system will use `/bin/bash` to run the script. If `run.sh` is not given executable permission, running `./run.sh` will prompt permission denied, However if you manually specify the interpreter and use it `bash run.sh`, can also run normally
 
 The output is consistent with the content of `1.txt.`
 
