@@ -1,3 +1,47 @@
+# GTF Filter for Biologists
+
+This repository contains a simple Python script that filters a GTF (Gene Transfer Format) file based on the specified chromosome name. The script is designed to be easily accessible and understandable for biologists who may not have extensive programming experience.
+
+## Prerequisites
+
+- Python 3.x
+
+## Usage
+
+1. Clone the repository to your local machine or download the script file directly.
+2. Open a terminal or command prompt.
+3. Navigate to the directory where the script is located.
+4. Run the script with the following command:
+
+```shell
+python gtf_filter.py <gtf_file> <chromosome_name> <output_file>
+```
+
+Replace `<gtf_file>` with the path to your GTF file, `<chromosome_name>` with the desired chromosome name, and `<output_file>` with the name of the output file.
+
+- The `<gtf_file>` should be a valid GTF file containing gene annotations.
+- The `<chromosome_name>` parameter should be provided in the appropriate format for your GTF file. For ENSEMBL, use chromosome numbers (e.g., 1, 2, 3, etc.). For UCSC, use the "chr" prefix followed by the chromosome number (e.g., chr1, chr2, chr3, etc.).
+- The `<output_file>` parameter specifies the name of the file where the filtered results will be saved. This file will be created in the same directory as the script.
+
+## Example
+
+Suppose you have a GTF file named `annotations.gtf` and you want to extract gene annotations for chromosome 1 in ENSEMBL format. You can run the script as follows:
+
+```shell
+python gtf_filter.py annotations.gtf 1 filtered_annotations.gtf
+```
+
+This command will filter the `annotations.gtf` file and save the filtered results in a new file named `filtered_annotations.gtf`.
+
+## Output
+
+The script will read the input GTF file line by line and write matching lines for the specified chromosome to the output file. The output file will contain the filtered gene annotations for the requested chromosome.
+
+Please note that the script assumes the input GTF file is correctly formatted and follows the GTF specification.
+
+
+
+
 # Extract information using python script from .gtf file
 
 **To filter and extract information based on your input**
